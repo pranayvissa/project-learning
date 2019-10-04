@@ -5,7 +5,7 @@ class Node:
         self.data = data
         self.next = None
 
-class LinkedList:
+class MyLinkedList:
 
     def __init__(self):
         """
@@ -22,7 +22,7 @@ class LinkedList:
         """
         count = 0
         curr = self.head
-        if self.head == None or index >= self.length:
+        if index < 0 or self.head == None or index >= self.length:
             return -1
         elif index == 0:
             return self.head.data
@@ -71,7 +71,7 @@ class LinkedList:
         :type val: int
         :rtype: None
         """
-        if self.head == None or index == 0:
+        if index <= 0:
             self.addAtHead(val)
         else:
             if index > self.length:
@@ -95,7 +95,7 @@ class LinkedList:
         :type index: int
         :rtype: None
         """
-        if self.head is None or index >= self.length:
+        if index < 0 or self.head is None or index >= self.length:
             return
         elif index == 0:
             curr = self.head.next
@@ -111,26 +111,11 @@ class LinkedList:
             self.length -= 1
 
 
-    def printList(self):
-        """
-        Print contents of the list from head
-        :rtype None
-        """
-        curr = self.head
-        while curr != None:
-            print curr.data
-            curr = curr.next
 
-
-if __name__ == '__main__':
-
-    ll = LinkedList()
-
-    ll.addAtHead(1)
-    import pdb; pdb.set_trace()
-    ll.addAtIndex(1,2)
-    print ll.get(1)
-    print ll.get(0)
-    print ll.get(2)
-
-    # ll.printList()
+# Your MyLinkedList object will be instantiated and called as such:
+# obj = MyLinkedList()
+# param_1 = obj.get(index)
+# obj.addAtHead(val)
+# obj.addAtTail(val)
+# obj.addAtIndex(index,val)
+# obj.deleteAtIndex(index)
