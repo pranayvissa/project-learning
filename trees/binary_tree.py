@@ -35,8 +35,13 @@ class BinarySearchTree:
         else:
             if mode == 'inorder':
                 self.print_inorder(self.root)
-            if mode == 'preorder':
+            elif mode == 'preorder':
                 self.print_preorder(self.root)
+            elif mode == 'postorder':
+                self.print_postorder(self.root)
+            else:
+                print "Bad traversal option"
+                return
 
     def print_inorder(self, node):
         if node:
@@ -50,6 +55,12 @@ class BinarySearchTree:
             self.print_preorder(node.left)
             self.print_preorder(node.right)
 
+    def print_postorder(self, node):
+        if node:
+            self.print_postorder(node.left)
+            self.print_postorder(node.right)
+            print node.val
+
 
 if __name__ == '__main__':
     bst = BinarySearchTree()
@@ -61,7 +72,7 @@ if __name__ == '__main__':
     bst.insert(31)
     bst.insert(42)
 
-    bst.print_tree(mode='inorder')
+    bst.print_tree(mode='postorder')
 
 
 
