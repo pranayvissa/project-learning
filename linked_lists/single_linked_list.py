@@ -241,7 +241,7 @@ class MyLinkedList:
                 even = odd.next
 
 
-    def check_palindrome(self):
+    def checkPalindrome(self):
         """
         Check if a string is palindrome
         2 ways -
@@ -272,6 +272,29 @@ class MyLinkedList:
         return is_palindrome
 
 
+    def swapPairs(self):
+        """
+        Given a linked list, swap every two adjacent nodes and return its head.
+        """
+        if self.head is None:
+            return
+        if self.head.next is None:
+            return
+
+        curr = self.head
+        while (curr is not None):
+            if (curr.next is not None):
+                curr_next = curr.next
+                tmp = curr.data
+                curr.data = curr_next.data
+                curr_next.data = tmp
+                curr = curr_next.next
+            else:
+                curr = curr.next
+
+
+
+
 # Your MyLinkedList object will be instantiated and called as such:
 # obj = MyLinkedList()
 # param_1 = obj.get(index)
@@ -279,3 +302,16 @@ class MyLinkedList:
 # obj.addAtTail(val)
 # obj.addAtIndex(index,val)
 # obj.deleteAtIndex(index)
+
+ll = MyLinkedList()
+ll.addAtTail(1)
+ll.addAtTail(2)
+ll.addAtTail(3)
+ll.addAtTail(4)
+ll.addAtTail(5)
+# ll.addAtTail(6)
+
+ll.printList()
+
+ll.swapPairs()
+ll.printList()
